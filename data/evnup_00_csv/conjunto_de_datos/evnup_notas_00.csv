@@ -1,7 +1,0 @@
-﻿id,indicador,descripcion
-1002000038,Matrimonios,La información se presenta por lugar de registro.
-1002000039,Divorcios,La información se presenta por lugar de registro.
-6200240402,Divorcios judiciales,"Divorcio judicial: Disolución jurídica definitiva de un matrimonio en el cual interviene algún juez de lo familiar, civil o mixto, independientemente de que se trate de un divorcio necesario o voluntario."
-6200240505,Tasa bruta de nupcialidad,Datos calculados con base en las proyecciones de población a mitad de año de CONAPO. Las cifras se refieren a los matrimonios por entidad federativa de registro.
-6200240506,Divorcios administrativos,"Divorcio administrativo: Disolución jurídica definitiva de un matrimonio que se tramita en las oficialías del registro civil, siempre y cuando se encuentre legislado en la entidad que corresponda, se solicita siempre por mutuo consentimiento de los cónyuges."
-

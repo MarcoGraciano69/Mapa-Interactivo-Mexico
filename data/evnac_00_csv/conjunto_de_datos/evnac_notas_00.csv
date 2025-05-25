@@ -1,8 +1,0 @@
-﻿id,indicador,descripcion
-1002000026,Nacimientos registrados,Las cifras se refieren a los nacimientos registrados por entidad federativa de residencia habitual de la madre.
-1002000027,Nacimientos registrados. Hombres,Las cifras se refieren a los nacimientos registrados por entidad federativa de residencia habitual de la madre.
-1002000028,Nacimientos registrados. Mujeres,Las cifras se refieren a los nacimientos registrados por entidad federativa de residencia habitual de la madre.
-1002000029,Nacimientos registrados. Sexo no especificado,Las cifras se refieren a los nacimientos registrados por entidad federativa de residencia habitual de la madre.
-6200240469,Relación de nacimientos registrados mujeres - hombres,"Las cifras se refieren a los nacimientos registrados por entidad federativa de residencia habitual de la madre. El total nacional incluye aquellos nacimientos, donde la residencia habitual de la madre es el extranjero."
-6200240470,Porcentaje de nacimientos registrados de madres adolescentes (menores de 20 años),Las cifras se refieren a los nacimientos registrados por entidad federativa de residencia habitual de la madre. Para el cálculo del porcentaje se utilizó la edad de la madre al momento del nacimiento del hijo que se registró; se excluyen los nacimientos con edad no especificada de la madre.
-
