@@ -45,7 +45,7 @@ Los datos provienen de instituciones mexicanas oficiales:
 
 ## Institución Colaboradora
 
-Este proyecto fue desarrollado con el apoyo de la **Universidad de Guanajuato**.
+Este proyecto fue desarrollado con el apoyo de **IDEAGTO** y de la la **Universidad de Guanajuato**.
 
 ## Acceso a los Mapas
 
