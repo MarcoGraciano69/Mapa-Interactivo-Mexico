@@ -1,20 +1,70 @@
-# Aplicación Dash sobre Indicadores de México
+# Mapa Interactivo de Indicadores Socioeconómicos de México
 
-![](assets/app_screencast.gif)
+## Descripción del Proyecto
 
-Los datos utilizados en esta aplicación provienen de fuentes oficiales de México, como el **INEGI** y la **Secretaría de Salud**. Los gráficos reflejan indicadores relevantes como la **tasa de natalidad**, **mortalidad**, **escolaridad**, y otros aspectos demográficos y sociales importantes.  
+Este proyecto consiste en dos mapas interactivos que visualizan indicadores socioeconómicos clave de México, divididos en:
 
-Mapa programado por:  
-Oswaldo Rendón Lira  
-Marco Iván Rodríguez Graciano  
+1. **Mapa del Norte de México**: 12 entidades federativas
+2. **Mapa del Sur-Centro de México**: 19 entidades federativas
 
-Página basada en el repositorio de Dash Gallery App: Opioid Epidemic  
-Información y datos obtenidos de datos oficiales del Gobierno Mexicano.
+![](assets/app_screencast.gif) *Ejemplo de visualización interactiva*
+
+## Características Principales
+
+- Visualización geográfica interactiva por estado
+- Filtrado de datos por categorías (pobreza, educación, salud, economía)
+- Panel detallado de indicadores por entidad federativa
+- Diseño responsive que funciona en dispositivos móviles
+- Datos actualizados a 2024-2025
+
+## Fuentes de Datos Oficiales
+
+Los datos provienen de instituciones mexicanas oficiales:
+
+- **INEGI**: Indicadores demográficos y económicos
+- **CONEVAL**: Medición de pobreza y desigualdad
+- **Secretaría de Salud**: Estadísticas de salud pública
+- **Gobierno de Guanajuato (IDEA)**: Datos estatales
+
+## Tecnologías Utilizadas
+
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Visualización**: SVG nativo
+- **Control de versiones**: Git/GitHub
+- **Hosting**: GitHub Pages
+
+## Equipo de Desarrollo
+
+- **Marco Iván Rodríguez Graciano**  
+  Desarrollador Frontend  
+  `mi.rodriguezgraciano@ugto.mx`
+
+- **Oswaldo Rendón Lira**  
+  Especialista en Datos  
+  `o.rendonlira@ugto.mx`
+
+## Institución Colaboradora
+
+Este proyecto fue desarrollado con el apoyo de la **Universidad de Guanajuato**, División de Ciencias Económico-Administrativas.
+
+## Acceso a los Mapas
+
+- [Mapa del Norte de México](https://marcograciano69.github.io/Mapa-Mexico-Parte-2/)
+- [Mapa del Sur-Centro de México](https://marcograciano69.github.io/Mapa-Mexico-Parte-1/)
+
+## Cómo Contribuir
+
+1. Haz fork del repositorio
+2. Crea una rama para tu contribución (`git checkout -b feature/nueva-funcionalidad`)
+3. Haz commit de tus cambios (`git commit -m 'Agrega nueva funcionalidad'`)
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está bajo licencia MIT. Los datos pertenecen a las instituciones oficiales mencionadas.
 
 ---
 
-## Introducción
-
-Esta aplicación utiliza **Dash** para proporcionar una visualización interactiva de los indicadores clave en México. Su propósito es permitir a los usuarios explorar tendencias demográficas y sociales de forma dinámica y personalizada.
-
-
+*Última actualización: Mayo 2025*  
+*Proyecto basado en estándares abiertos y datos públicos*
