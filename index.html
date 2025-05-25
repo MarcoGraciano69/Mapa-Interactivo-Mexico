@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación | Mapas Interactivos de México</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3a7bd5;
+            --accent-color: #e04b1a;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --text-color: #333333;
+            --gray: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            font-weight: normal;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-top: 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .data-source {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--gray);
+        }
+        
+        .source-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-right: 1.5rem;
+            border: 1px solid var(--gray);
+            padding: 5px;
+            border-radius: 4px;
+            background-color: white;
+        }
+        
+        .source-info {
+            flex: 1;
+        }
+        
+        .source-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .source-link {
+            color: var(--secondary-color);
+            word-break: break-all;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-item {
+            background-color: var(--white);
+            border-radius: 4px;
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.8rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .member-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .member-role {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .member-contact {
+            font-size: 0.9rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Documentación del Proyecto</h1>
+            <p class="subtitle">Mapas Interactivos de México - Datos Socioeconómicos</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#fuentes" class="nav-link">Fuentes de Datos</a>
+            <a href="#metodologia" class="nav-link">Metodología</a>
+            <a href="#tecnologia" class="nav-link">Tecnología</a>
+            <a href="#equipo" class="nav-link">Equipo</a>
+            <a href="#desarrollo" class="nav-link">Desarrollo</a>
+        </div>
+    </nav>
+    
+
+    <section id="acceso-mapas" style="margin-bottom: 3rem;">
+        <h2>Mapas Interactivos</h2>
+        
+        <div class="card" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; padding: 2rem;">
+            <!-- Mapa Norte -->
+            <div class="map-card" style="flex: 1 1 300px; max-width: 400px; text-align: center;">
+                <a href="https://marcograciano69.github.io/Mapa-Mexico-Parte-2/" target="_blank">
+                    <img src="Norte_de_México.png" 
+                         alt="Mapa Norte de México" 
+                         style="width: 100%; border-radius: 8px; border: 2px solid #3a7bd5; transition: transform 0.3s ease;">
+                    <h3 style="margin-top: 1rem; color: #2c3e50;">Mapa del Norte de México</h3>
+                </a>
+                <p style="text-align: left; margin-top: 0.5rem;">
+                    Visualización interactiva de indicadores socioeconómicos de los estados del norte del país. 
+                    Incluye 12 entidades federativas con datos actualizados a 2025.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="https://marcograciano69.github.io/Mapa-Mexico-Parte-2/" 
+                       class="filter-btn" 
+                       style="display: inline-block; margin: 0.5rem;"
+                       target="_blank">Ver Mapa Norte</a>
+                </div>
+            </div>
+            
+            <!-- Mapa Sur -->
+            <div class="map-card" style="flex: 1 1 300px; max-width: 400px; text-align: center;">
+                <a href="https://marcograciano69.github.io/Mapa-Mexico-Parte-1/" target="_blank">
+                    <img src="sur.png" 
+                         alt="Mapa Sur de México" 
+                         style="width: 100%; border-radius: 8px; border: 2px solid #3a7bd5; transition: transform 0.3s ease;">
+                         <h3 style="margin-top: 1rem; color: #2c3e50;">Mapa del Sur de México</h3>
+                </a>
+                <p style="text-align: left; margin-top: 0.5rem;">
+                    Plataforma interactiva con estadísticas de los estados del centro-sur de México. 
+                    Contiene 19 entidades federativas con información detallada.
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="https://marcograciano69.github.io/Mapa-Mexico-Parte-1/" 
+                       class="filter-btn" 
+                       style="display: inline-block; margin: 0.5rem;"
+                       target="_blank">Ver Mapa Sur</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="fuentes">
+            <h2>Fuentes de Datos</h2>
+            
+            <div class="card">
+                <h3>Datos Socioeconómicos</h3>
+                
+                <div class="data-source">
+                    <img src="INEGI.png" alt="INEGI" class="source-logo">
+                    <div class="source-info">
+                        <div class="source-title">INEGI - Instituto Nacional de Estadística y Geografía</div>
+                        <p>Datos demográficos, educativos y económicos (2020-2023)</p>
+                        <a href="https://www.inegi.org.mx/" class="source-link" target="_blank">https://www.inegi.org.mx/</a>
+                    </div>
+                </div>
+                
+                <div class="data-source">
+                    <img src="images.png" alt="CONEVAL" class="source-logo">
+                    <div class="source-info">
+                        <div class="source-title">CONEVAL - Consejo Nacional de Evaluación</div>
+                        <p>Medición de pobreza (2020-2024)</p>
+                        <a href="https://www.coneval.org.mx/" class="source-link" target="_blank">https://www.coneval.org.mx/</a>
+                    </div>
+                </div>
+                
+                <div class="data-source">
+                    <img src="IMAGEN2024_20230-03.jpg" alt="Secretaría de Salud" class="source-logo">
+                    <div class="source-info">
+                        <div class="source-title">Secretaría de Salud</div>
+                        <p>Indicadores de salud y mortalidad infantil (2023)</p>
+                        <a href="https://www.gob.mx/salud" class="source-link" target="_blank">https://www.gob.mx/salud</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Datos Geográficos</h3>
+                
+                <div class="data-source">
+                    <img src="INEGI.png" alt="INEGI" class="source-logo">
+                    <div class="source-info">
+                        <div class="source-title">INEGI - Marco Geoestadístico</div>
+                        <p>Límites estatales y coordenadas geográficas</p>
+                        <a href="https://www.inegi.org.mx/temas/mg/" class="source-link" target="_blank">https://www.inegi.org.mx/temas/mg/</a>
+                    </div>
+                </div>
+                
+                <div class="data-source">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" alt="Wikipedia" class="source-logo">
+                    <div class="source-info">
+                        <div class="source-title">Wikipedia - Divisiones Políticas</div>
+                        <p>Referencia de ubicación y colindancias estatales</p>
+                        <a href="https://es.wikipedia.org/wiki/Estados_de_M%C3%A9xico" class="source-link" target="_blank">https://es.wikipedia.org/wiki/Estados_de_M%C3%A9xico</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="metodologia">
+            <h2>Metodología</h2>
+            
+            <div class="card">
+                <h3>Recolección de Datos</h3>
+                <p>Los datos fueron recolectados de fuentes oficiales durante el periodo de enero a marzo de 2024. Se priorizaron las fuentes gubernamentales más recientes disponibles para cada indicador.</p>
+                
+                <h3>Procesamiento</h3>
+                <p>Los datos brutos fueron procesados y normalizados para asegurar consistencia en las visualizaciones:</p>
+                <ul>
+                    <li>Unificación de formatos de fechas y porcentajes</li>
+                    <li>Conversión de montos a dólares usando el tipo de cambio promedio anual</li>
+                    <li>Redondeo de decimales para mejorar la legibilidad</li>
+                    <li>Validación cruzada entre múltiples fuentes cuando fue posible</li>
+                </ul>
+                
+                <h3>Categorización</h3>
+                <p>Los niveles (Bajo, Medio, Alto) se definieron basándose en:</p>
+                <ul>
+                    <li><strong>Pobreza:</strong> Bajo (<30%), Medio (30-45%), Alto (>45%)</li>
+                    <li><strong>Educación:</strong> Bajo (<20%), Medio (20-30%), Alto (>30%)</li>
+                    <li><strong>Salud:</strong> Bajo (>12%), Medio (9-12%), Alto (<9‰) mortalidad infantil</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="tecnologia">
+            <h2>Tecnología Utilizada</h2>
+            
+            <div class="card">
+                <h3>Stack Tecnológico</h3>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174854.png" alt="HTML5" class="tech-icon">
+                        HTML5
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3" class="tech-icon">
+                        CSS3
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" class="tech-icon">
+                        JavaScript
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="SVG" class="tech-icon">
+                        SVG
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Git" class="tech-icon">
+                        Git
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="tech-icon">
+                        GitHub
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma" class="tech-icon">
+                        Figma
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2772/2772128.png" alt="VSCode" class="tech-icon">
+                        VS Code
+                    </div>
+                </div>
+                
+                <h3>Librerías y Herramientas</h3>
+                <ul>
+                    <li><strong>Visualización:</strong> SVG nativo para los mapas, sin dependencias externas</li>
+                    <li><strong>Diseño:</strong> Sistema de diseño personalizado con variables CSS</li>
+                    <li><strong>Control de versiones:</strong> Git con repositorio en GitHub</li>
+                    <li><strong>Prototipado:</strong> Figma para diseño inicial</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="equipo">
+            <h2>Equipo del Proyecto</h2>
+
+<div class="team-grid" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin: 0 auto; max-width: 900px;">
+    <div class="team-member" style="flex: 0 1 400px; text-align: center;">
+        <img src="https://ui-avatars.com/api/?name=Marco+Rodriguez&background=3a7bd5&color=fff&size=200" alt="Marco Rodríguez" class="member-photo" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto;">
+        <div class="member-name" style="font-size: 1.2rem; margin-top: 1rem;">Marco Iván Rodríguez Graciano</div>
+        <div class="member-role" style="color: #3a7bd5; font-weight: 500;">Desarrollador Frontend</div>
+        <div class="member-contact" style="margin-top: 0.5rem;">
+            <a href="mailto:mi.rodriguezgraciano@ugto.mx" style="color: #333; text-decoration: none;">mi.rodriguezgraciano@ugto.mx</a>
+        </div>
+    </div>
+    
+    <div class="team-member" style="flex: 0 1 400px; text-align: center;">
+        <img src="https://ui-avatars.com/api/?name=Oswaldo+Rendon&background=e04b1a&color=fff&size=200" alt="Oswaldo Rendón" class="member-photo" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto;">
+        <div class="member-name" style="font-size: 1.2rem; margin-top: 1rem;">Oswaldo Rendón Lira</div>
+        <div class="member-role" style="color: #e04b1a; font-weight: 500;">Especialista en Datos</div>
+        <div class="member-contact" style="margin-top: 0.5rem;">
+            <a href="mailto:o.rendonlira@ugto.mx" style="color: #333; text-decoration: none;">o.rendonlira@ugto.mx</a>
+        </div>
+    </div>
+</div>
+        
+            <div class="card" style="margin-top: 2rem; text-align: center;">
+                <h3>Colaboradores Institucionales</h3>
+                <p>Este proyecto fue desarrollado con el apoyo de:</p>
+                
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <div style="text-align: center;">
+                        <img src="ugto.jpg" alt="Universidad de Guanajuato" style="height: 80px; margin-bottom: 0.5rem;">
+                        <div style="font-weight: bold;">Universidad de Guanajuato</div>
+                        <div style="font-size: 0.9rem;">División de Ciencias e Ingenierías</div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <img src="idea.png" alt="IDEA GTO" style="height: 80px; margin-bottom: 0.5rem;">
+                        <div style="font-weight: bold;">Instituto de Datos y Analítica</div>
+                        <div style="font-size: 0.9rem;">Gobierno del Estado de Guanajuato</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="desarrollo">
+            <h2>Historial de Desarrollo</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Noviembre 2024</div>
+                        <p>Investigación inicial y definición de requerimientos. Selección de fuentes de datos oficiales.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Diciembre 2024</div>
+                        <p>Recolección y procesamiento inicial de datos. Diseño de los primeros prototipos conceptuales.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Enero 2025</div>
+                        <p>Desarrollo de la arquitectura base del proyecto. Implementación de las primeras visualizaciones.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Febrero-Marzo 2025</div>
+                        <p>Desarrollo completo de los mapas interactivos. Integración de todos los componentes.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Abril 2025</div>
+                        <p>Pruebas exhaustivas, ajustes de diseño y optimización de rendimiento.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mayo 2025</div>
+                        <p>Finalización de la documentación. Preparación para despliegue y publicación oficial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Mapas Interactivos de México - Documentación Técnica</p>
+            
+            <div class="footer-links">
+                <a href="mailto:mi.rodriguezgraciano@ugto.mx" class="footer-link">Contactar a Marco</a>
+                <a href="mailto:o.rendonlira@ugto.mx" class="footer-link">Contactar a Oswaldo</a>
+                <a href="https://github.com/MarcoGraciano69" class="footer-link" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
